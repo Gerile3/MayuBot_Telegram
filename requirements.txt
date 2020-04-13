@@ -1,0 +1,4 @@
+python_telegram_bot==12.5.1
+praw==6.5.1
+requests==2.23.0
+PyYAML==5.3.1

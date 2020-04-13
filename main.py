@@ -43,6 +43,6 @@ def error(update, context):
 
 if __name__ == '__main__':
     print("i am running!")
-    with open("auth.txt", 'r') as f:
+    with open("auth2.yaml", 'r') as f:
         api_key = f.readline()
     main(api_key)
