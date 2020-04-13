@@ -7,8 +7,8 @@ __pycache__/
 *.so
 
 # additions
-.txt
-.yaml
+*.txt
+*.yaml
 
 # Distribution / packaging
 .Python
