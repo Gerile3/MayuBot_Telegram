@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram.ext import Updater, CommandHandler
 import logging
 from funks import Funks
 
@@ -24,9 +24,6 @@ def main(api_key):
 
     for i in range(len(methods)):
         dp.add_handler(CommandHandler(names[i], methods[i]))
-
-    # on noncommand i.e message - echo the message on Telegram
-    dp.add_handler(MessageHandler(Filters.text, Funks.echo))
 
     # log all errors
     dp.add_error_handler(error)
