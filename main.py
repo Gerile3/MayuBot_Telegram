@@ -18,14 +18,12 @@ def main(api_key):
     dp = updater.dispatcher
 
     # on different commands - answer in Telegram
-    dp.add_handler(CommandHandler("start", Funks.start))
-    dp.add_handler(CommandHandler("help", Funks.help))
-    dp.add_handler(CommandHandler("mayu", Funks.mayu))
-    dp.add_handler(CommandHandler("location", Funks.location))
-    dp.add_handler(CommandHandler("meme", Funks.meme))
-    dp.add_handler(CommandHandler("coin", Funks.coin))
-    dp.add_handler(CommandHandler("weather", Funks.weather))
-    dp.add_handler(CommandHandler("horos", Funks.horos))
+    functions = Funks()
+    methods = [getattr(functions, m) for m in dir(functions) if not m.startswith('__')]
+    names = [x for x in dir(Funks) if not x.startswith('__')]
+
+    for i in range(len(methods)):
+        dp.add_handler(CommandHandler(names[i], methods[i]))
 
     # on noncommand i.e message - echo the message on Telegram
     dp.add_handler(MessageHandler(Filters.text, Funks.echo))
